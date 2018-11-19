@@ -140,3 +140,11 @@ export const formatDate = (intl, todayString, d) => {
 
   return `${formattedDate}, ${formattedTime}`;
 };
+
+export const parseDateFromISO8601 = dateString => {
+  return moment(dateString, 'YYYY-MM-DD').toDate();
+};
+
+export const stringifyDateToISO8601 = date => {
+  return moment(date).format('YYYY-MM-DD');
+};
