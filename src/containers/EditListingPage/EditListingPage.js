@@ -54,6 +54,7 @@ export const EditListingPageComponent = props => {
     onPayoutDetailsFormChange,
     onUpdateImageOrder,
     onChange,
+    onMonthChanged,
     page,
     params,
     scrollingDisabled,
@@ -157,11 +158,13 @@ export const EditListingPageComponent = props => {
           history={history}
           images={images}
           listing={currentListing}
+          availabilityCalendar={page.availabilityCalendar}
           onUpdateListing={onUpdateListing}
           onCreateListingDraft={onCreateListingDraft}
           onPublishListingDraft={onPublishListingDraft}
           onPayoutDetailsFormChange={onPayoutDetailsFormChange}
           onPayoutDetailsSubmit={onPayoutDetailsSubmit}
+          onMonthChanged={onMonthChanged}
           onImageUpload={onImageUpload}
           onUpdateImageOrder={onUpdateImageOrder}
           onRemoveImage={onRemoveListingImage}
@@ -212,6 +215,7 @@ EditListingPageComponent.propTypes = {
   onRemoveListingImage: func.isRequired,
   onUpdateListing: func.isRequired,
   onChange: func.isRequired,
+  onMonthChanged: func.isRequired,
   page: object.isRequired,
   params: shape({
     id: string.isRequired,
@@ -263,6 +267,7 @@ const mapDispatchToProps = dispatch => ({
   onUpdateImageOrder: imageOrder => dispatch(updateImageOrder(imageOrder)),
   onRemoveListingImage: imageId => dispatch(removeListingImage(imageId)),
   onChange: () => dispatch(clearUpdatedTab()),
+  onMonthChanged: month => { console.log('EditListingPage - onMonthChanged', month) },
 });
 
 // Note: it is important that the withRouter HOC is **outside** the

@@ -55,6 +55,12 @@ const initialState = {
   createListingDraftInProgress: false,
   submittedListingId: null,
   redirectToListing: false,
+  availabilityCalendar: {
+    '2018-11': {
+      reservedDays: [new Date(Date.now() + 24 * 60 * 60 * 1000), new Date(Date.now() + 2 * 24 * 60 * 60 * 1000), new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), new Date(Date.now() + 4 * 24 * 60 * 60 * 1000)],
+      blockedDaysCurrent: [new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)],
+    },
+  },
   images: {},
   imageOrder: [],
   removedImageIds: [],
